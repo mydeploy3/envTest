@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Env App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: 50px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="app-name">Loading...</h1>
+    <p>API URL: <span id="api-url">Loading...</span></p>
+  </div>
+
+  <script>
+    // Simulated env.js content
+    window.env = {
+      API_URL: "https://api.example.com",
+      APP_NAME: "SimpleEnvApp"
+    };
+  </script>
+
+  <script>
+    // Main script
+    document.addEventListener("DOMContentLoaded", () => {
+      const appName = window.env?.APP_NAME || "Default App";
+      const apiUrl = window.env?.API_URL || "https://default.com";
+
+      document.getElementById("app-name").textContent = appName;
+      document.getElementById("api-url").textContent = apiUrl;
+
+      console.log("Loaded env vars:", window.env);
+    });
+  </script>
+</body>
+</html>
